@@ -2,9 +2,8 @@
 Self-service analytics layer, on top of the transformed fct_bookings
 table: a small set of named, parameterized, pre-validated queries a
 business user (e.g. a pricing analyst) could call without writing raw
-SQL against the warehouse — the posting's "maintaining and enhancing our
-self-service analytics solution to empower business users with
-data-driven insights" task.
+SQL against the warehouse, empowering business users with data-driven
+insights.
 
 The governance angle matters as much as the query layer itself: every
 query here is a fixed, reviewed SQL template with a small, explicit set

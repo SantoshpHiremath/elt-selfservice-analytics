@@ -1,7 +1,6 @@
 """
-Synthetic raw booking/pricing events — modeled on Pricenow's own stated
-domain (pricing, e-commerce, tourism/leisure), not real Pricenow, ski
-resort, or customer data.
+Synthetic raw booking/pricing events for the pricing, e-commerce and
+tourism/leisure domain (lift passes, hotel rooms, rentals, spa days).
 
 Deliberately shaped like a real upstream event source would be: nested,
 inconsistent field naming, occasional nulls, and a couple of duplicate
@@ -37,11 +36,11 @@ def _gen_one_event(rng, event_id):
     # Cancellation probability genuinely depends on lead_time, price, and
     # channel — a long-lead-time, expensive, call-center booking is more
     # likely to fall through than a short-lead-time, cheap, web booking.
-    # (Directionally realistic; not fit to any real Pricenow data.) Base
+    # (Directionally realistic synthetic assumptions.) Base
     # rate ~8%, then adjusted by real feature-driven multipliers plus
     # per-event random noise, so the signal is genuine but not perfectly
-    # separable — the same "noisy but real signal" discipline applied to
-    # every predictive-modeling project in this portfolio.
+    # separable — the same "noisy but real signal" discipline for
+    # predictive-modeling projects.
     cancel_prob = 0.05
     if lead_time > 60:
         cancel_prob += 0.10

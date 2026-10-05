@@ -1,11 +1,10 @@
 """
 Predictive modeling on the transformed booking data: a cancellation-risk
-classifier — the posting's "predictive modelling to optimise customer
-decisions and pricing strategies" task, applied concretely. Knowing which
-bookings are at elevated cancellation risk lets a pricing/ops team target
-confirmation nudges or adjust overbooking assumptions, similar in shape
-to the no-show risk model built for a prior application, applied here to
-Pricenow's actual domain (pricing/e-commerce/tourism) instead.
+classifier — predictive modelling to optimise customer decisions and
+pricing strategies. Knowing which bookings are at elevated cancellation
+risk lets a pricing/ops team target confirmation nudges or adjust
+overbooking assumptions, similar in shape to a no-show risk model,
+applied here to the pricing/e-commerce/tourism domain.
 
 Uses only the transformed fct_bookings table — the model consumes
 ELT-transformed data, not raw events, which is the realistic point in a

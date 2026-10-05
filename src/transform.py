@@ -39,7 +39,7 @@ SELECT
     d.sku,
     -- Recover missing product_name from the lookup table instead of
     -- dropping the row — the raw layer's ~10% missing product_name
-    -- rate is a real gap this transform closes, not a rows-lost problem.
+    -- rate is a gap this transform closes, not a rows-lost problem.
     COALESCE(d.product_name, p.product_name) AS product_name,
     COALESCE(d.category, p.category) AS category,
     d.channel,
@@ -59,9 +59,7 @@ LEFT JOIN dim_product p ON d.sku = p.sku
 def run_transformations(con):
     """Runs the Transform stage against whatever is currently in
     raw_events. Returns a small report of what changed, for a
-    transparent 'here's what Transform actually did' record — the same
-    instinct as this project's other honest-disclosure work, applied to
-    a pipeline instead of a model."""
+    transparent 'here's what Transform actually did' record."""
     raw_count = con.execute("SELECT COUNT(*) FROM raw_events").fetchone()[0]
 
     con.execute(PRODUCT_LOOKUP_SQL)
